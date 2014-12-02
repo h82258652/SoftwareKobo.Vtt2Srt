@@ -25,13 +25,7 @@ namespace SoftwareKobo.VttToSrt.Core
                 srt.Add(index.ToString());
 
                 var array = span.Split(new[] { "\r\n" }, StringSplitOptions.None);
-                srt.Add(array[0].Trim());
-                var sb = new StringBuilder();
-                for (int j = 1; j < array.Length; j++)
-                {
-                    sb.Append(array[j].Trim());
-                }
-                srt.Add(sb.ToString());
+                srt.AddRange(array);
                 srt.Add(Environment.NewLine);
 
                 index++;
